@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
-import org.apache.logging.log4j.CloseableThreadContext.Instance;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,8 +22,8 @@ public class Order implements Serializable {
 	private Integer id;
 	private Instant moment;
 	
-	@ManyToOne
-	@JoinColumn(name = "client_id")
+	@ManyToOne //config da classe estrangeira
+	@JoinColumn(name = "client_id") //cria uma tabela com nome client_id 
 	private User client;
 	
 	public Order() {

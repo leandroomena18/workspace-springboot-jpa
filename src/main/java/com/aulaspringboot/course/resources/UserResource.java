@@ -18,21 +18,21 @@ public class UserResource {
 
 /*class para testar se o recurso está funcionado 
 
-@GetMapping //indica que responde a uma requisição do tipo get do http
-public ResponseEntity<User> findAll() {
-	User u = new User(1L, "Maria Clara", "MariaClara@gmail.com", "999999", "12345");
-	return ResponseEntity.ok().body(u);
-	
-	//responseEntity classe que retorna requisições web
-	//.ok() retorna resposta com sucesso no http
-	//.body(<user) retorna o corpo do usuário que acabou de instanciar
-}
+					@GetMapping //indica que responde a uma requisição do tipo get do http
+					public ResponseEntity<User> findAll() {
+						User u = new User(1L, "Maria Clara", "MariaClara@gmail.com", "999999", "12345");
+						return ResponseEntity.ok().body(u);
+						
+						//responseEntity classe que retorna requisições web
+						//.ok() retorna resposta com sucesso no http
+						//.body(<user) retorna o corpo do usuário que acabou de instanciar
+					}
 */
 	
-	@Autowired //registar a classe UserService como componente
+	@Autowired //injeção de dependência - associa uma instancia de userRepository - Obs tem que regitrar como componente
 	private UserService service;
 	
-	@GetMapping
+	@GetMapping // requisição do tipo get do http
 	public ResponseEntity<List<User>> findAll(){
 		List<User> list = service.findAll();
 		return ResponseEntity.ok().body(list);

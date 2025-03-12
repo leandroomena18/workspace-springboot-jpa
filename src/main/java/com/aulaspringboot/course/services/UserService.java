@@ -9,19 +9,20 @@ import org.springframework.stereotype.Service;
 import com.aulaspringboot.course.entities.User;
 import com.aulaspringboot.course.repositories.UserRepository;
 
-@Service //poderia ser @component ou @Repository
+@Service // poderia ser @component ou @Repository
 public class UserService {
-	
-	@Autowired //não precisa registrar como componente pq estende a JpaRepoitory que já é resgistrada
+
+	@Autowired // não precisa registrar como componente pq estende a JpaRepoitory que já é
+				// resgistrada
 	private UserRepository repository;
-	
-	public List<User> findAll(){
+
+	public List<User> findAll() {
 		return repository.findAll();
 	}
-	
+
 	public User findById(Long id) {
-		Optional<User> obj = repository.findById(id); //optional usado para evitar erros com null
-		return obj.get(); //retorna um objeto do tipo User dentro de optional
+		Optional<User> obj = repository.findById(id); // optional usado para evitar erros com null
+		return obj.get(); // retorna um objeto do tipo User dentro de optional
 	}
 
 }
