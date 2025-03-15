@@ -14,7 +14,7 @@ public enum OrderStatus {
 		this.code = code;			//precisa de contrutor para aceitar o códigos (1...5)
 	}
 	
-	public int getCod() { //precisamos, pq a variáveis são privadas
+	public int getCod() { //precisamos, pq a variáveis são privadas e para pegar o código em inteiro
 		return code;
 	}
 	
@@ -23,7 +23,7 @@ public enum OrderStatus {
 			if(value.getCod() == code) {
 				return value;
 		}
-		throw new IllegalArgumentException("Invalid OrderStatus Code"); //caso o códigfo eja 
+		throw new IllegalArgumentException("Invalid OrderStatus Code"); //caso o code seja null 
 	}
 	
 }
